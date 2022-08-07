@@ -1,0 +1,33 @@
+[
+{
+	"name":"tạ văn nam",
+	"gender": true,
+	"marks" : 7,
+	"contact":{
+		"email" : "namtv@gmail.com",
+		"phone" : "0968666888"
+		},
+	"subjects":["WEB205","COM108","SOF306"]
+},
+{
+	"name":"Đỗ Thị Hiền",
+	"gender": false,
+	"marks" : 4,
+	"contact":{
+		"email" : "hiendt@gmail.com",
+		"phone" : "0968123123"
+		},
+	"subjects":["WEB205","COM108"]
+},
+{
+	"name":"Lê Minh Thụy",
+	"gender": true,
+	"marks" : 9.5,
+	"contact":{
+		"email" : "thuylm@gmail.com",
+		"phone" : "0968123456",
+		"address" : "Hà Nội"
+		},
+	"subjects":["WEB205"]
+}
+]

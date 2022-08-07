@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout::dynamic(~{::body})}"
+>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Index 2</h1>
+	<h3>[[${message}]]</h3>
+	<h3 th:unless="${#request.remoteUser}">
+		<i style="color:red">Chưa đăng nhập!</i>
+	</h3>
+</body>
+</html>

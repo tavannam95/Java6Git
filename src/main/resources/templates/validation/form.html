@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+th:replace="~{/layout/layout.html::dynamic(~{::body})}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Validation Form</h1>
+	<h3>[[${message}]]</h3>
+	<form action="/validation/validate" method="post" th:object="${sv}">
+		
+		<input th:field="*{email}" placeholder="Email...">
+		<i th:errors="*{email}"></i>
+		<br>
+		<br>
+		<input th:field="*{fullname}" placeholder="Fulname...">
+		<i th:errors="*{fullname}"></i>
+		<br>
+		<br>
+		<input th:field="*{marks}" placeholder="Marks...">
+		<i th:errors="*{marks}"></i>
+		<br>
+		<br>
+		<input th:field="*{gender}" th:value="true" type="radio">Male
+		<input th:field="*{gender}" th:value="false" type="radio">Female
+		<i th:errors="*{gender}"></i>
+		<br>
+		<br>
+		<select th:field="*{country}">
+			<option value="">Nationality?</option>
+			<option th:each="entry:${countries}" th:value="${entry.key}" th:text="${entry.value}"></option>
+		</select>
+		<i th:errors="*{country}"></i>
+		<br>
+		<br>
+		<button type="submit">Validate</button>	
+	</form>
+</body>
+</html>

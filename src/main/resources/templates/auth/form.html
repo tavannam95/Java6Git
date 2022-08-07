@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout::dynamic(~{::body})}"
+>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3 style="color:red" th:text="${message}"></h3>
+	<form action="/auth/login" method="post">
+		Username
+		<br>
+		<input name="username">
+		<br>
+		Password
+		<br>
+		<input name="password" type="password">
+		<br>
+		<input name="remember" type="checkbox">
+		Remember me?
+		<br>
+		<button>Login</button>		
+	</form>
+</body>
+</html>

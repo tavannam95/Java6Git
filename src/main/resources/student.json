@@ -1,0 +1,10 @@
+{
+	"name":"Tạ Văn Nam",
+	"gender": true,
+	"marks" : 7.5,
+	"contact":{
+		"email" : "namtv@gmail.com",
+		"phone" : "0968666888"
+		},
+	"subjects":["WEB205","COM108"]
+}

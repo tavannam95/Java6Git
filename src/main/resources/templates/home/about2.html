@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout::dynamic(~{::body})}"
+>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>About 2</h1>
+	<nav>
+		<a th:utext="#{nav.home}" th:href="@{/home/index2}">Home</a>:: <a
+			th:utext="#{nav.about}" th:href="@{/home/about2}">About Us</a>
+	</nav>
+	<th:block th:if="${#request.remoteUser}">
+		<h3>
+			Authentication Information
+		</h3>
+		<ul>
+			<li>Username: [[${#request.remoteUser}]]</li>
+			<li>Role: [[${#request.isUserInRole('ADMIN')}]]</li>
+		</ul>
+		<ul th:object="${#request.userPrincipal}">
+			<li>Username: [[*{name}]]</li>
+			<li>Roles: [[*{authorities}]]</li>
+			
+		</ul>
+	</th:block>
+</body>
+</html>

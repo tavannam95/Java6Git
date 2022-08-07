@@ -1,0 +1,20 @@
+[
+{
+	"name":"Tạ Văn Nam",
+	"gender": true,
+	"marks" : 7,
+	"email" : "namtv@gmail.com"
+},
+{
+	"name":"Đỗ Thị Hiền",
+	"gender": false,
+	"marks" : 4,
+	"email" : "hiendt@gmail.com"
+},
+{
+	"name":"Lê Minh Thụy",
+	"gender": true,
+	"marks" : 8,
+		"email" : "thuylm@gmail.com"
+}
+]

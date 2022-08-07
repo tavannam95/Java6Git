@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT16313</title>
+</head>
+<body>
+    <div class="container p-2">
+        <div >
+            <div class="rounded-pill">
+                <h1>AngularJS</h1>
+                <form class="mb-3" action="" method="post" th:object="${form}">
+                <div class="mb-3 mt-3">
+                    <label for="exampleFormControlInput1" class="form-label fw-bold">Email address</label>
+                    <input type="email" class="form-control" th:field="*{email}">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label fw-bold">Full Name</label>
+                    <input type="text" class="form-control" th:field="*{fullname}">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label fw-bold">Mark</label>
+                    <input type="number" class="form-control" th:field="*{marks}">
+                  </div>
+                  <div class="">
+                    <label for="exampleFormControlInput1" class="form-label fw-bold">Gender</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" th:field="*{gender}" value="true" name="inlineRadioOptions" id="inlineRadio1">
+                    <label class="form-check-label" for="inlineRadio1">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" th:field="*{gender}" value="false" name="inlineRadioOptions" id="inlineRadio2">
+                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                  </div>
+                  <div class="mt-3">
+                    <label for="exampleFormControlInput1" class="form-label fw-bold">Country</label>
+                  </div>
+                  <select class="form-select" th:field="*{country}" aria-label="Default select example">
+                    <option value="VN">Việt Nam</option>
+                    <option value="US">United States</option>
+                  </select>
+                  <br>
+                  <br>
+	                <button class="btn btn-primary" th:formaction="@{/student/create}">Create</button>
+	                <button class="btn btn-primary" th:formaction="@{|/student/update/${key}|}">Update</button>
+	                <button class="btn btn-primary" th:formaction="@{|/student/delete/${key}|}">Delete</button>
+	                <button class="btn btn-primary" th:formaction="@{/student/index}">Reset</button>
+                </form>
+                
+                  <table class="table table-bordered mt-5">
+                    <thead>
+                      <tr>
+                        <th scope="col">Email address</th>
+                        <th scope="col">Full name</th>
+                        <th scope="col">Marks</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="stu : ${items}" th:object="${stu.value}">
+                        <td>[[*{email}]]</td>
+                        <td>[[*{fullname}]]</td>
+                        <td>[[*{marks}]]</td>
+                        <td>[[*{gender}]]</td>
+                        <td>[[*{country}]]</td>
+                        <td>
+                        	<a th:href="@{|/student/edit/${stu.key}|}">Edit</a>
+                        	<a th:href="@{|/student/delete/${stu.key}|}">delete</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
