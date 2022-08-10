@@ -8,8 +8,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.Data;
 
 @Data
@@ -19,12 +17,9 @@ public class Authority {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
-	String username;
-	String roleid;
 	@ManyToOne
 	@JoinColumn(name = "username")
 	Account account;
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "roleid")
 	Role role;

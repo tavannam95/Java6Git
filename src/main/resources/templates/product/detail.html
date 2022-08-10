@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index::dynamic(~{::main})}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<main>
+		<h1 class="mt-3 mb-3 text-danger">[[${item.name}]]</h1>
+
+		<div class="border border-primary rounded text-center p-5">
+			<img alt="" th:src="@{|/images/${item.image}|}">
+		</div>
+
+		<div class="card h-50 mt-3 border border-primary">
+			<div class="card-body">
+				<ul>
+					<li>[[${item.price}]]</li>
+					<li>[[${item.category.name}]]</li>
+					<li>[[${item.createdate}]]</li>
+				</ul>
+			</div>
+			<div class="card-footer d-flex flex-row-reverse bd-highlight">
+				<a href="#" class="btn btn-success bd-highlight"> <i
+					class="fas fa-shopping-cart"></i></a>
+			</div>
+
+		</div>
+		<div class="card h-50 mt-3 border-primary">
+			<div class="card-header text-white bg-primary">HÀNG CÙNG LOẠI</div>
+			<div class="card-body">
+				<ul>
+					<li th:each="p:${item.category.products}"><a
+						th:href="@{|/product/detail/${p.id}|}"> [[${p.name}]] </a></li>
+				</ul>
+			</div>
+
+		</div>
+
+	</main>
+</body>
+</html>

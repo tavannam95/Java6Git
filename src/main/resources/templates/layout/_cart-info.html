@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="border border-primary p-3 mt-3 mb-3 text-center rounded">
+		<a th:href="@{|/cart/view|}" class="text-decoration-none">
+			<i class="fas fa-shopping-cart"></i>
+			${{cart.count}} items x ${{cart.amount | number:2}}
+			</a>
+	</div>
+</body>
+</html>

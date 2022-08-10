@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index::dynamic(~{::main})}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<main class="row">
+		<div class="col-4 mt-3" th:each="p:${items}">
+			
+			<div class="card mb-3" style="width: 18rem;">
+				<div class="card-header bg-primary text-white text-center">
+					<b class="card-title" th:text="${p.name}"></b>
+				</div>
+				<div class="card-body">
+					
+					<!-- <p class="card-text">Some quick example text to build on the
+						card title and make up the bulk of the card's content.</p> -->
+					<a th:href="@{|/product/detail/${p.id}|}"> <img
+						th:src="@{|/assets/images/${p.image}|}"
+						class="card-img-top img-product-list" alt="...">
+					</a>
+				</div>
+				<div class="card-footer d-flex justify-content-between">
+					<b th:text="|$${p.price}|"></b>
+					<a th:attr="ng-click=@{|cart.add(${p.id})|}" class="btn btn-success">
+						<i class="fas fa-shopping-cart"></i>
+					</a>
+				</div>
+			</div>
+
+		</div>
+	</main>
+</body>
+</html>

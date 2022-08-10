@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+		<div class="card-body">
+			<ul class="list-group">
+				<li class="list-group-item bg-primary text-white fw-bold">
+					DANH MỤC SẢN PHẨM
+				</li>
+				<li class="list-group-item" th:each="c:${cates}">
+					<a th:href="@{|/product/list?cid=${c.id}|}" class="text-decoration-none">
+						[[${c.name}]]
+					</a>
+				</li>
+			</ul>
+		</div>
+</body>
+</html>

@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Data
@@ -19,6 +21,11 @@ public class Account {
 	String fullname;
 	String email;
 	String photo;
+	@JsonIgnore
 	@OneToMany(mappedBy = "account")
 	List<Authority> authorities;
+	@JsonIgnore
+	@OneToMany(mappedBy = "account")
+	List<Order> orders;
+	
 }
