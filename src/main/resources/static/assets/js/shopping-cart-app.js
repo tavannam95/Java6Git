@@ -45,4 +45,31 @@ app.controller("shopping-cart-ctrl", function($scope, $http,) {
 		},
 	}
 	$scope.cart.loadFromLocalStogare();
+	
+	$scope.order = {
+		createdate: new Date(),
+		address: "",
+		account: {username: $("#username").text()},
+		get orderDetails(){
+			return $scope.cart.items.map(i =>{
+				return {
+					product: {id: i.id},
+					price: i.price,
+					quantity: i.qty
+				}
+			});
+		},
+		purchase(){
+			var order = angular.copy(this);
+			$http.post("/rest/orders",order).then(res =>{
+				alert("Đặt hàng thành công!");
+				$scope.cart.clear();
+				location.href = "/order/detail/" + res.data.id;
+			}).catch(error =>{
+				alert("Đặt hàng lỗi!");
+				console.log(error);
+			})
+		}
+	}	
+	
 })

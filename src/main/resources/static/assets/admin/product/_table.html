@@ -1,0 +1,30 @@
+<div>
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th scope="col">ID</th>
+	      <th scope="col">Name</th>
+	      <th scope="col">Price</th>
+	      <th scope="col">Date</th>
+	      <th scope="col">Image</th>
+	      <th scope="col">Avaiable</th>
+	      <th scope="col">Category</th>
+	      <th scope="col"></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr ng-repeat="item in items">
+	      <td>{{item.id}}</td>
+	      <td>{{item.name}}</td>
+	      <td>{{item.price}}</td>
+	      <td>{{item.createdate|date:'dd-MM-yyyy'}}</td>
+	      <td>{{item.image}}</td>
+	      <td>{{item.available?'Yes':'No'}}</td>
+	      <td>{{item.category.name}}</td>
+	      <td>
+	      	<button ng-click="edit(item)" class="btn btn-primary">Edit</button>
+	      </td>
+	    </tr>
+	  </tbody>
+	</table>
+</div>

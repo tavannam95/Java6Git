@@ -1,14 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{/layout/index::dynamic(~{::main})}"
->
+	th:replace="~{/layout/index::dynamic(~{::main})}">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<main>
-		<h1>Order Detail</h1>
+	<main th:object="${order}">
+		<div class="card h-auto mt-3">
+			<div class="card-header text-white bg-primary">
+				<h3>ORDER DETAIL</h3>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-6">
+						<label class="form-label fw-bold">Purchaser</label>
+						<div class="form-control">[[*{account.fullname}]]</div>
+					</div>
+					<div class="col-6">
+						<label class="form-label fw-bold">Order Date</label>
+						<div class="form-control">[[*{#dates.format(createdate,'dd-MM-yyyy')}]]</div>
+					</div>
+					<div class="col-12 mt-3">
+						<label class="form-label fw-bold">Shipping Address</label>
+						<div class="form-control">[[*{address}]]</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="card h-auto mt-3" th:fragment="shopping-cart">
+			<div class="card-header text-white bg-primary">
+				<h3>ORDER LINES</h3>
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Id</th>
+						<th scope="col">Name</th>
+						<th scope="col">Price</th>
+						<th scope="col">Quantity</th>
+						<th scope="col">Amount</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="detail: *{orderDetails}" th:object="${detail}">
+						<th scope="row">[[*{product.id}]]</th>
+						<td>[[*{product.name}]]</td>
+						<td>$[[*{price}]]</td>
+						<td>[[*{quantity}]]</td>
+						<td>$[[*{#numbers.formatDecimal(price*quantity, 0, 'COMMA',
+							2, 'POINT')}]]</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</main>
 </body>
 </html>

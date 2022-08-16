@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="card h-auto mt-3">
+	<div class="card h-auto mt-3" th:fragment="shopping-cart">
 		<div class="card-header text-white bg-primary">
 			<h3>Shopping cart</h3>
 		</div>
@@ -42,10 +42,12 @@
 			</table>
 		<div class="card-footer">
 			<button ng-click="cart.clear()" class="btn btn-danger">
-				<i class="fas fa-redo"></i>Clear
+				<i class="fas fa-redo"></i> Clear
 			</button>
 			<a th:href="@{/order/checkout}" class="btn btn-success">
-				<i class="fas fa-check"></i> Check out
+				
+				<i class="fas fa-thumbs-up"></i>
+				 Check out
 			</a>
 		</div>
 	</div>

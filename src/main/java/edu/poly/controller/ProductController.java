@@ -40,7 +40,6 @@ public class ProductController {
 		for (int i = 0; i < account.getAuthorities().size(); i++) {
 			roles[i] = account.getAuthorities().get(i).getRole().getId();
 		}
-		System.out.println(roles[0]);
 		if (cid.isPresent()) {
 			List<Product> items = productService.findByCategoryId(cid.get());
 			model.addAttribute("items", items);

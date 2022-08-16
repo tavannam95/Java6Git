@@ -45,13 +45,15 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter{
 		http.csrf().disable();
 		
 		http.authorizeRequests()
-			.antMatchers("/auth/login/**").permitAll()
-			.anyRequest().authenticated();
+			.antMatchers("/order/**").authenticated()
+			.antMatchers("/admin/**").hasAnyRole("STAF","DIRE")
+			.antMatchers("/rest/authorities").hasRole("DIRE")
+			.anyRequest().permitAll();
 		
 		http.formLogin()
 			.loginPage("/auth/login/form")
 			.loginProcessingUrl("/auth/login")
-			.defaultSuccessUrl("/auth/login/success", true)
+			.defaultSuccessUrl("/auth/login/success", false)
 			.failureUrl("/auth/login/error")
 			.usernameParameter("username")
 			.passwordParameter("password");

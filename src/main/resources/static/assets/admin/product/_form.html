@@ -1,0 +1,45 @@
+<div class="card h-auto">
+	<div class="card-header">PRODUCT EDITION</div>
+	<div class="card-body">
+			<div class="row">
+			<div class="col-sm-4">
+				<img width="100%" alt="" ng-src="/assets/images/{{form.image}}">
+			</div>
+				<div class="mb-3 col-sm-4">
+					<label class="form-label fw-bold">Name</label> <input ng-model="form.name" type="text"
+						class="form-control">
+					<label class="form-label fw-bold">Image</label> <input ng-model="form.image" type="file"
+						class="form-control">
+					<label class="form-label fw-bold">Create date</label> <input ng-model="form.createdate"
+						type="date" class="form-control">
+				</div>
+				<div class="mb-3 col-sm-4">
+					<label class="form-label fw-bold">Price</label> <input ng-model="form.price"
+						type="number" class="form-control">
+					<label class="form-label fw-bold">Category</label> 
+					<select ng-model="form.category.id" class="form-select" aria-label="Default select example">
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+					</select>
+					<label class="form-label fw-bold">Avaiable?</label>
+					<div class="form-control">
+						<div class="form-check form-check-inline">
+							<input type="radio" ng-model="form.available" class="form-check-input" name="available" ng-value="true"> 
+							<label class="form-check-label" for="inlineRadio1">Yes</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input type="radio" ng-model="form.available" class="form-check-input" name="available" ng-value="false"> 
+							<label class="form-check-label" for="inlineRadio2">No</label>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<div class="card-footer text-center">
+		<button ng-click="check_radio()" class="btn btn-primary">Create</button>
+		<button class="btn btn-success">Update</button>
+		<button class="btn btn-danger">Delete</button>
+		<button class="btn btn-info">Reset</button>
+	</div>
+</div>

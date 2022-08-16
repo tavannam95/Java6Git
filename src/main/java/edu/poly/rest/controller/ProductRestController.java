@@ -1,5 +1,7 @@
 package edu.poly.rest.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,11 @@ public class ProductRestController {
 	@GetMapping("/{id}")
 	public Product getOne(@PathVariable("id") Integer id) {
 		return productService.findById(id).get();
+	}
+	
+	@GetMapping()
+	public List<Product> getAll() {
+		return productService.findAll();
 	}
 		
 }

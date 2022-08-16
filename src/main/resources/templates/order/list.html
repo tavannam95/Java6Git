@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{/layout/index::dynamic(~{::main})}"
->
+	th:replace="~{/layout/index::dynamic(~{::main})}">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -9,6 +8,36 @@
 <body>
 	<main>
 		<h1>Order List</h1>
+		<div class="card h-auto mt-3" th:fragment="shopping-cart">
+			<div class="card-header text-white bg-primary">
+				<h3>YOUR ORDER PURCHASED</h3>
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Order No.</th>
+						<th scope="col">Order Date</th>
+						<th scope="col">Shipping Address</th>
+						<th scope="col"></th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="order, state: ${orders}" th:object="${order}">
+						<th scope="row">[[${state.index+1}]]</th>
+						<td>[[*{id}]]</td>
+						<td>$[[*{createdate}]]</td>
+						<td>[[*{address}]]</td>
+						<td>
+							<a th:href="@{|/order/detail/*{id}|}" class="btn btn-outline-dark">
+								<i class="fas fa-eye"></i>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</main>
 </body>
 </html>
